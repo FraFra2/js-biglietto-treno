@@ -3,11 +3,14 @@ const ageLabel = document.querySelector("#user-age");
 const distanceLabel = document.querySelector("#user-distance");
 const titleLabel = document.querySelector("h1");
 const finalPricelabel = document.querySelector("#final-price");
+const currentTimeLabel = document.querySelector("#currentTime")
 
 //Variables
 let price, finalPrice;
 let discount, discountValue; 
 let discountedPrice;
+
+let date = new Date();
 
 //User Inputs
 const userAge = prompt("Inserire la propria età:");
@@ -22,7 +25,7 @@ else{
     distanceLabel.innerHTML = `Distanza da percorrere: ${userDistance}km`;
     price = userDistance * 0.21
 }
-
+//Analisi età
 if(userAge < 18){
     discount = 20;
 }
@@ -33,8 +36,11 @@ else{
     discount = 0;
 }
 
+
+
 discountValue = price * discount / 100;
 finalPrice = price - discountValue;
+
 
 finalPricelabel.innerHTML = `Prezzo del biglietto: ${finalPrice.toFixed(2)}€`;
 
